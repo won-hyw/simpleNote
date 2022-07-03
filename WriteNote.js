@@ -1,5 +1,7 @@
 const mTitle = document.getElementById("mtitle");
 const mMemo = document.getElementById("mmemo");
+const mCategory = document.getElementById("mCategory");
+let categoryList = [];
 let memoList = [];
 
 const submitBtn = document.getElementById("btn_a");
@@ -13,19 +15,52 @@ function saveMemo() {
         memos.forEach(memo => {
             const prevMemoObj = {
                 title: memo.title,
-                memo: memo.memo
+                memo: memo.memo,
+                category: memo.category
             }
             // memoList에 다시 저장해준다
             memoList.push(prevMemoObj);
         });
     }
+    if(localStorage.getItem('category') != null) {
+        let categorys = JSON.parse(localStorage.getItem('category'));
+        categorys.forEach(category => {
+            const prevCategoryObj = {
+                title: category.title
+            }
+            categoryList.push(prevCategoryObj);
+        });
+    }
+    if (mCategory.value != ''){
+        if (categoryList !== null){
+            let check = true;
+            categoryList.forEach(category =>{
+                if(category.title == mCategory.value){
+                    check = false;
+                    return false;
+                }
+            })
+            if(check){
+                const CategoryObj = {
+                    title : mCategory.value
+                }
+                
+                categoryList.push(CategoryObj);
+                localStorage.setItem('category', JSON.stringify(categoryList));
+            }
+        }
+
+    }
     // 새롭게 입력받은 값 처리
     const memoObj = {
         title : mTitle.value,
-        memo : mMemo.value
+        memo : mMemo.value,
+        category:mCategory.value
     }
     memoList.push(memoObj);
     alert("값이 등록되었습니다.");
     localStorage.setItem('memo', JSON.stringify(memoList));
     memoList = [];
+    
+    location.href = 'SimpleNote.html';
 }

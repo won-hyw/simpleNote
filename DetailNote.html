@@ -53,7 +53,7 @@
 			font-size: 30px;
 			border-bottom: 1px black solid;
 		}
-		.category{
+		.categorys{
 			padding-left: 20px;
 			padding-top: 30px;
 			/* font-family: 'Gaegu', cursive; */
@@ -94,6 +94,18 @@
 			font-weight: bolder;
 			border-color: #A8E2F5;
 		}
+		
+		#infoC{
+			/* font-family: 'Gaegu', cursive; */
+			/* font-family: 'Roboto Mono', monospace; */
+			font-weight: bold;
+			color:#74A3FF;
+		}
+		#mCategory{
+			font-size: 40px;
+			font-weight: bolder;
+			border-color: #A8E2F5;
+		}
 		#mmemo{
 			border-color: #A8E2F5;
 		}
@@ -120,14 +132,14 @@
 
 			<a href="./SimpleNote.html"><div class="all_notes">All Notes</div></a>
 	
-			<div class="category">
+			<div class="categorys">
 				<!--코드화 부분-->
-				<details>
+				<!-- <details>
 					<summary>카테고리 1</summary>
 					<ul>
 						<li><a herf="">메모장</a></li>
 					</ul>
-				</details>
+				</details> -->
 			</div>
 			<div class="btn_div">
 				<a href="WriteNote.html"><button>작성하기</button></a>
@@ -137,6 +149,11 @@
 			<div><label id="infoT">Title</label></div>
 			<div>
 				<input type="text" id="mtitle" size="14" readonly>
+			</div>
+			<br>
+			<div><label id="infoC">Category</label></div>
+			<div>
+				<input type="text" id="mCategory" size="14" readonly>
 			</div>
 			<BR><BR>
 			<div><label id="infoT">Memo</label></div>
